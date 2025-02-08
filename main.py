@@ -1,7 +1,7 @@
 from tkinter import *
 import math
 
-# ---------------------------- CONSTANTS ------------------------------- #
+# colors and other constants
 PINK = "#e2979c"
 RED = "#e7305b"
 GREEN = "#9bdeac"
@@ -13,7 +13,7 @@ LONG_BREAK_MIN = 20
 reps = 0
 timer = None
 
-# ---------------------------- TIMER RESET ------------------------------- #
+#  timer reset functionality
 def reset():
     window.after_cancel(timer)
     canvas.itemconfig(timer_text, text="00:00")
@@ -23,7 +23,7 @@ def reset():
     reps = 0
     start_button.config(state=NORMAL)
 
-# ---------------------------- TIMER MECHANISM ------------------------------- #
+# timer mechanism
 def start_timer():
     global reps
     reps += 1
@@ -42,7 +42,7 @@ def start_timer():
         label.config(text="WORK", fg=GREEN)
     start_button.config(state=DISABLED)
 
-# ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
+# countdown mechanism
 def count_down(count):
     count_min = math.floor(count / 60)
     count_sec = count % 60
@@ -61,7 +61,7 @@ def count_down(count):
         label_check.config(text=mark)
         start_button.config(state=NORMAL)
 
-# ---------------------------- UI SETUP ------------------------------- #
+# ui setup
 window = Tk()
 window.title("Pomodoro")
 window.config(padx=100, pady=50, bg=YELLOW)
